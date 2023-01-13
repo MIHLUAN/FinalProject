@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getMenuApi } from '../../redux/reducers/jobReducer';
 import MenuHome from './MenuHome';
+import { NavLink } from "react-router-dom";
+
 
 
 const HeaderHome = () => {
@@ -57,10 +59,15 @@ const HeaderHome = () => {
       <li className="nav-item">
         <a className="nav-link" href="#">Become a Seller</a>  
       </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Sign in</a>  
+      <li className="nav-item"> 
+        <NavLink to="/login" className="nav-link d-flex align-items-center text-white">
+            Sign in
+          </NavLink>
       </li >
+      <NavLink to="/register" className="nav-link d-flex align-items-center text-white">
       <button className='buttonLogin'>Join</button>
+    </NavLink>
+      
     </ul>
       </div>
   

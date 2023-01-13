@@ -2,7 +2,8 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div>Login</div>
+<div style={{height: 500,background:'green'}}>Login</div>
+
   )
 }
 

@@ -262,7 +262,55 @@ const Home = () => {
       </div>
       </div>
       </div>
-
+      <div className='categories'>
+      <div className='container'>
+      <h2>Explore the marketplace</h2>
+      <div className='content row'>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg'/>
+      <p>Graphics & Design</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6 ' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/online-marketing.74e221b.svg'/>
+      <p>Digital Marketing</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/writing-translation.32ebe2e.svg'/>
+      <p>Writing & Translation</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/writing-translation.32ebe2e.svg'/>
+      <p>Video & Animation</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/music-audio.320af20.svg'/>
+      <p>Music & Audio</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/programming.9362366.svg'/>
+      <p>Programming & Tech</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/business.bbdf319.svg '/>
+      <p>Business</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lifestyle.745b575.svg'/>
+      <p>Lifestyle</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/data.718910f.svg'/>
+      <p>Data</p>
+      </div>
+      <div className='col-lg-3 item col-md-4 col-6' >
+      <img src='https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/photography.01cf943.svg'/>
+      <p>Photography</p>
+      </div>
+      </div>
+      </div>
+     
+      </div>  
+      
     </>
 
   )

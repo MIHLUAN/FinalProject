@@ -27,15 +27,16 @@ root.render(
       <Routes>
         <Route path='' element={<HomeTemplate />}>
           <Route index element={<Home />}></Route>
-          <Route path='admin'  element={<Admin />}></Route>
+          
           <Route path='jobdetail' element={<JobDetail />}></Route>
           <Route path='joblist' element={<JobList />}></Route>
           <Route path='jobtype' element={<JobType />}></Route>
-          <Route path='login' element={<Login />}></Route>
-          <Route path='register' element={<Register />}></Route>
           <Route path='*' element={<Navigate to="/" />}></Route>
     
         </Route>
+        <Route path='admin'  element={<Admin />}></Route>
+        <Route path='login' element={<Login />}></Route>
+        <Route path='register' element={<Register />}></Route>
       </Routes>
 
     </HistoryRouter>
