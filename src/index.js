@@ -29,7 +29,9 @@ root.render(
           <Route index element={<Home />}></Route>
           
           <Route path='jobdetail' element={<JobDetail />}></Route>
-          <Route path='joblist' element={<JobList />}></Route>
+          <Route path='joblist'>
+          <Route path=':keySearch' element={<JobList />}></Route>
+          </Route>
           <Route path='jobtype' element={<JobType />}></Route>
           <Route path='*' element={<Navigate to="/" />}></Route>
     

@@ -1,6 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import { history } from '../..'
 
 const Home = () => {
+  const keywork=useRef("")
+  const clickSearch=()=>{
+    console.log(keywork.current.value)
+    if(keywork.current.value==="")
+    alert('Chưa nhập từ khóa!')
+    else
+    history.push(`/joblist/${keywork.current.value}`);
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+   
+    return () => {
+        window.removeEventListener('scroll', isSticky);
+    };
+});
+const isSticky = (e) => {
+    const header = document.querySelector('.header-section');
+    const scrollTop = window.scrollY;
+    scrollTop >= 50 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
+    scrollTop >= 100 ? header.classList.add('is-sticky1') : header.classList.remove('is-sticky1');
+
+};
   useEffect(() => {
 
 
@@ -77,8 +100,8 @@ const Home = () => {
           <div className='content'>
             <h3>Find the perfect <span>freelance</span> services for your business</h3>
             <form className="d-flex me-auto " role="search">
-              <input className="inputSearchCarousel" placeholder="☌ Try building mobile app " aria-label="Search" />
-              <button className="btn  btnSearchCarousel" type="submit">Search</button>
+              <input ref={keywork} type='text'  className="inputSearchCarousel" placeholder="☌ Try building mobile app " aria-label="Search" />
+              <button className="btn  btnSearchCarousel" onClick={clickSearch} type="submit">Search</button>
             </form>
             <div className='popular'>
               <span>Popular:</span>

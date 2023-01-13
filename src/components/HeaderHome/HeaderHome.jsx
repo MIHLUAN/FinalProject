@@ -8,20 +8,7 @@ import { NavLink } from "react-router-dom";
 
 
 const HeaderHome = () => {
-    useEffect(() => {
-        window.addEventListener('scroll', isSticky);
-       
-        return () => {
-            window.removeEventListener('scroll', isSticky);
-        };
-    });
-    const isSticky = (e) => {
-        const header = document.querySelector('.header-section');
-        const scrollTop = window.scrollY;
-        scrollTop >= 50 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
-        scrollTop >= 100 ? header.classList.add('is-sticky1') : header.classList.remove('is-sticky1');
-
-    };
+    
    
     
   return (
