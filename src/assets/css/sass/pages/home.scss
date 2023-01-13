@@ -1,0 +1,73 @@
+.home{
+    height: 700px;
+    // background-color: aqua;
+    background-image: url("https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734108/bg-hero-4-1792-x1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .container{
+        .content{
+            width: 50%;
+            color: white;
+            h3{
+                font-size: 48px;
+                line-height: 56px;
+                font-weight: 600;
+                span{
+                    font-weight: 500;
+                    font-style: italic;
+                    font-family: DomaineDisplay,Helvetica Neue,Helvetica,Arial,sans-serif;
+                }
+            }
+            form{
+                margin-top:25px;
+                margin-bottom: 25px;
+                input{
+                    width: 85%;
+                    padding:10px;
+                    border: none;
+                    outline: 0;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+                button{
+                    width: 15%;
+                    color: white;
+                    font-weight: 600;
+                    background-color:#19a463;
+                    border-radius: 0;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+            }
+            .popular{
+                span{
+                    margin-left: 5px;
+                }
+                a{
+                    color: white;
+                    margin-left: 5px;
+                    border-radius: 30px;
+                    border: 1px solid white;
+                    padding: 5px 10px;
+                    text-decoration: none;
+                }
+            }
+
+        }
+    }
+}
+.home_trusted{
+    background-color: #fafafa;
+}
+.trusted{
+
+    p{
+        margin-bottom: 0;
+        color: #b5b6ba;
+        font-weight: 600;
+    }
+    max-width: 750px;
+    margin: 0 auto;
+    height: 100px;
+}
