@@ -31,6 +31,7 @@ root.render(
           <Route path='jobdetail' element={<JobDetail />}></Route>
           <Route path='joblist'>
           <Route path=':keySearch' element={<JobList />}></Route>
+          // <Route path='' element={<JobList />}></Route>
           </Route>
           <Route path='jobtype' element={<JobType />}></Route>
           <Route path='*' element={<Navigate to="/" />}></Route>

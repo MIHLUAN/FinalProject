@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { history } from '../..';
 import JobType from '../../pages/JobType/JobType';
-import { getMenuApi } from '../../redux/reducers/jobReducer';
+import { getArrJobByTypeDetailApi, getMenuApi } from '../../redux/reducers/jobReducer';
 
 const MenuHome = () => {
     const { typeJob } = useSelector(state => state.jobReducer);
@@ -26,6 +27,13 @@ const MenuHome = () => {
     //         console.log(dsjop);
     //        })
     // }
+    
+    const renderJob=(e)=>{
+        const action = getArrJobByTypeDetailApi(e);
+        dispatch(action);
+        history.push('/joblist');
+        // console.log(e)
+    }
     const renderMenu = (arrTypeJob) => {
         // const rows = [];
         // for (const i in arrTypeJob) {
@@ -39,14 +47,14 @@ const MenuHome = () => {
                 <div class="noidung_dropdown d-flex">
                 {
                     newArrJob(item?.dsNhomChiTietLoai)?.map((dsjob,index)=>{
-                        console.log(dsjob);
+                        // console.log(dsjob);
                         return <>
                         <div key={index} className='loaiCV'>
                         <p className=''>{dsjob?.tenNhom}</p>
                         {
                             newArrJob(dsjob?.dsChiTietLoai)?.map((job,index)=>{
                                 // console.log(job);
-                                return  <a key={index} href="#">{job?.tenChiTiet}</a>
+                                return  <a key={index} onClick={()=>renderJob(job.id)} href="#">{job?.tenChiTiet}</a>
                             })
                         }
                       

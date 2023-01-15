@@ -1,15 +1,32 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { history } from '../..'
+import { getArrJobByNameApi } from '../../redux/reducers/jobReducer';
 
 const Home = () => {
-  const keywork=useRef("")
-  const clickSearch=()=>{
-    console.log(keywork.current.value)
-    if(keywork.current.value==="")
-    alert('Chưa nhập từ khóa!')
-    else
-    history.push(`/joblist/${keywork.current.value}`);
+  const [keywork, setKeywork] = useState("");
+  const handleChange=(e)=>{
+    const {value}=e.target
+    setKeywork(value)
   }
+  // const clickSearch=()=>{
+  //   console.log(keywork.current.value)
+  //   if(keywork.current.value==="")
+  //   alert('Chưa nhập từ khóa!')
+  //   else
+  //   {
+  //     console.log("home->joblist");
+  //     history.push(`/joblist/${keywork.current.value}`);
+  //   }
+    
+  // }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const actionAsync = getArrJobByNameApi(keywork);
+    dispatch(actionAsync);
+  }, [keywork])
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
    
@@ -100,8 +117,11 @@ const isSticky = (e) => {
           <div className='content'>
             <h3>Find the perfect <span>freelance</span> services for your business</h3>
             <form className="d-flex me-auto " role="search">
-              <input ref={keywork} type='text'  className="inputSearchCarousel" placeholder="☌ Try building mobile app " aria-label="Search" />
-              <button className="btn  btnSearchCarousel" onClick={clickSearch} type="submit">Search</button>
+              <input  type='text' onChange={handleChange}  className="inputSearchCarousel" placeholder="☌ Try building mobile app " aria-label="Search" />
+              <NavLink className='' to={`/joblist/${keywork}`}>
+              <button className="btn  btnSearchCarousel"  type="submit">Search</button>
+              
+              </NavLink>
             </form>
             <div className='popular'>
               <span>Popular:</span>

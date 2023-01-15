@@ -6,6 +6,8 @@ import {TOKEN_CYBERSOFT, ACCESS_TOKEN, getStore, getStoreJson, http, saveStore, 
 
 const initialState={
     typeJob:{},
+    arrJobByName:{},
+    keySearch:""
 }
 const jobReducer = createSlice({
     name: 'jobReducer',
@@ -13,10 +15,16 @@ const jobReducer = createSlice({
     reducers: {
        getTypeJobAction:(state, action) => {
         state.typeJob = action.payload;
-    }
+    },
+    getArrJobByNameAction:(state, action) => {
+      state.arrJobByName = action.payload;
+  },
+  getArrJobByTypeDetailAction:(state, action) => {
+    state.arrJobByName = action.payload;
+}
     }
 });
-export const {getTypeJobAction } = jobReducer.actions
+export const {getTypeJobAction,getArrJobByNameAction,getArrJobByTypeDetailAction } = jobReducer.actions
 export default jobReducer.reducer
 //lấy menu loai cv
 export const getMenuApi=(typeJob)=>{
@@ -26,7 +34,7 @@ export const getMenuApi=(typeJob)=>{
             url: "https://fiverrnew.cybersoft.edu.vn/api/cong-viec/lay-menu-loai-cong-viec",
             method: "GET",
             headers: {
-                tokenCybersoft: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udGVuZCA3MyIsIkhldEhhblN0cmluZyI6IjE5LzA1LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4NDQ1NDQwMDAwMCIsIm5iZiI6MTY1OTg5MTYwMCwiZXhwIjoxNjg0NjAyMDAwfQ.49m9-EoDr6zr7UOk_79hfcvJWKI_s0Wy_g40ossfl9c" ,
+                tokenCybersoft: TOKEN_CYBERSOFT ,
               }
           });
         //   Lấy dữ liệu về đưa lên redux
@@ -37,4 +45,43 @@ export const getMenuApi=(typeJob)=>{
           console.log(err);
         }
       };
+}
+// lay-cong-viec-theo-chi-tiet-loai
+export const getArrJobByTypeDetailApi=(key)=>{
+  return async (dispatch) => {
+      try {
+        const result = await axios({
+          url: `https://fiverrnew.cybersoft.edu.vn/api/cong-viec/lay-cong-viec-theo-chi-tiet-loai/${key}`,
+          method: "GET",
+          headers: {
+              tokenCybersoft: TOKEN_CYBERSOFT ,
+            }
+        });
+      //   Lấy dữ liệu về đưa lên redux
+        const action = getArrJobByTypeDetailAction(result.data.content);
+        console.log(result.data.content)
+        dispatch(action);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+}
+export const getArrJobByNameApi=(keySearch)=>{
+  return async (dispatch) => {
+      try {
+        const result = await axios({
+          url: `https://fiverrnew.cybersoft.edu.vn/api/cong-viec/lay-danh-sach-cong-viec-theo-ten/${keySearch}`,
+          method: "GET",
+          headers: {
+              tokenCybersoft: TOKEN_CYBERSOFT ,
+            }
+        });
+      //   Lấy dữ liệu về đưa lên redux
+        const action = getArrJobByNameAction(result.data.content);
+        console.log(result.data.content)
+        dispatch(action);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 }
