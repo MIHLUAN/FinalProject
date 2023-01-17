@@ -4,6 +4,7 @@
    width: 100%;
     position: fixed;
     background-color:transparent;
+    transition: 0.5s;
   }
   .is-sticky{
     background-color:white;
@@ -36,8 +37,10 @@
    
   }
 .is-sticky1{
+    transition: 0.5s;
     .menu{
         display: block;
+        transition: 0.5s;
     }
 }
 .container-fluid{
@@ -116,6 +119,7 @@
     display: none;
     border-top: 1px solid #74767e;
     border-bottom: 1px solid #74767e;
+    transform: 0.5s ;
 }
 .nut_dropdown {
     background-color: transparent;

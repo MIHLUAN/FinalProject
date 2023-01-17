@@ -119,7 +119,7 @@ const isSticky = (e) => {
             <form className="d-flex me-auto " role="search">
               <input  type='text' onChange={handleChange}  className="inputSearchCarousel" placeholder="☌ Try building mobile app " aria-label="Search" />
               <NavLink className='' to={`/joblist/${keywork}`}>
-              <button className="btn  btnSearchCarousel"  type="submit">Search</button>
+              <button className="btn w-100 h-100  btnSearchCarousel"  type="submit">Search</button>
               
               </NavLink>
             </form>

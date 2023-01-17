@@ -31,13 +31,14 @@ const HeaderHome = () => {
   }
   const dispatch = useDispatch();
   const params = useParams();
-  const keySearch=useRef(params.keySearch)
 
   useEffect(() => {
+    console.log('key',params.keySearch);
+    if(params.keySearch!==undefined)
+  {
     const actionAsync = getArrJobByNameApi(params.keySearch);
     dispatch(actionAsync);
-    if(params.keySearch!==undefined)
-    document.querySelector('.inputSearchHeader').value=params.keySearch
+  } 
   }, [params.keySearch])
   return (
     
@@ -57,7 +58,7 @@ const HeaderHome = () => {
       <form className="d-flex me-auto formSearch" role="search">
       <input className="inputSearchHeader"   onChange={handleChange}  placeholder="What service are you looking for today?" aria-label="Search" />
       <NavLink className='btnSearchHeader' to={`/joblist/${keywork}`}>
-      <button className=" btn  " ><i class="fa fa-search"></i></button>
+      <button className=" btn text-light " ><i class="fa fa-search"></i></button>
        </NavLink>
   </form>
     <ul className="navbar-nav  mb-2 mb-lg-0">

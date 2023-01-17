@@ -31,7 +31,7 @@ const MenuHome = () => {
     const renderJob=(e)=>{
         const action = getArrJobByTypeDetailApi(e);
         dispatch(action);
-        history.push('/joblist');
+        history.push(`/joblist/`);
         // console.log(e)
     }
     const renderMenu = (arrTypeJob) => {
@@ -54,7 +54,7 @@ const MenuHome = () => {
                         {
                             newArrJob(dsjob?.dsChiTietLoai)?.map((job,index)=>{
                                 // console.log(job);
-                                return  <a key={index} onClick={()=>renderJob(job.id)} href="#">{job?.tenChiTiet}</a>
+                                return  <a style={ {cursor: 'pointer'}} key={index} onClick={()=>renderJob(job.id)} >{job?.tenChiTiet}</a>
                             })
                         }
                       
