@@ -8,7 +8,8 @@ const initialState={
     typeJob:{},
     arrJobByName:{},
     keySearch:"",
-    arrJobByType:{}
+    arrJobByType:{},
+    JobDetail:[]
 }
 const jobReducer = createSlice({
     name: 'jobReducer',
@@ -25,10 +26,13 @@ const jobReducer = createSlice({
 },
 getArrJobByTypeAction:(state, action) => {
   state.arrJobByType = action.payload;
+},
+getJobDetailAction:(state, action) => {
+  state.JobDetail = action.payload;
 }
     }
 });
-export const {getArrJobByTypeAction,getTypeJobAction,getArrJobByNameAction,getArrJobByTypeDetailAction } = jobReducer.actions
+export const {getJobDetailAction,getArrJobByTypeAction,getTypeJobAction,getArrJobByNameAction,getArrJobByTypeDetailAction } = jobReducer.actions
 export default jobReducer.reducer
 //lấy menu loai cv
 export const getMenuApi=(typeJob)=>{
@@ -43,7 +47,7 @@ export const getMenuApi=(typeJob)=>{
           });
         //   Lấy dữ liệu về đưa lên redux
           const action = getTypeJobAction(result.data.content);
-          console.log(result.data.content)
+          //console.log(result.data.content)
           dispatch(action);
         } catch (err) {
           console.log(err);
@@ -82,7 +86,7 @@ export const getArrJobByNameApi=(keySearch)=>{
         });
       //   Lấy dữ liệu về đưa lên redux
         const action = getArrJobByNameAction(result.data.content);
-        console.log(result.data.content)
+        //console.log(result.data.content)
         dispatch(action);
       } catch (err) {
         console.log(err);
@@ -102,6 +106,26 @@ export const getArrJobByTypeApi=(id)=>{
       });
       //   Lấy dữ liệu về đưa lên redux
       const action = getArrJobByTypeAction(result.data.content);
+      //console.log(result.data.content)
+      dispatch(action);
+    } catch(err){
+      console.log(err);
+    }
+  }
+}
+//lay chi tiet cong viec
+export const getJobDetailApi=(id)=>{
+  return async (dispatch)=>{
+    try{
+      const result = await axios({
+        url: `https://fiverrnew.cybersoft.edu.vn/api/cong-viec/lay-cong-viec-chi-tiet/${id}`,
+        method: "GET",
+        headers: {
+            tokenCybersoft: TOKEN_CYBERSOFT ,
+          }
+      });
+      //   Lấy dữ liệu về đưa lên redux
+      const action = getJobDetailAction(result.data.content);
       console.log(result.data.content)
       dispatch(action);
     } catch(err){

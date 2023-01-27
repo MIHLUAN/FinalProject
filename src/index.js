@@ -28,7 +28,10 @@ root.render(
         <Route path='' element={<HomeTemplate />}>
           <Route index element={<Home />}></Route>
           
-          <Route path='jobdetail' element={<JobDetail />}></Route>
+          <Route path='jobdetail' >
+          <Route path=':id' element={<JobDetail />}></Route>
+
+          </Route>
           <Route path='joblist'>
           <Route path=':keySearch' element={<JobList />}></Route>
           <Route path='' element={<JobList />}></Route>

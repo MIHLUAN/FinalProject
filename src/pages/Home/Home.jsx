@@ -10,17 +10,6 @@ const Home = () => {
     const {value}=e.target
     setKeywork(value)
   }
-  // const clickSearch=()=>{
-  //   console.log(keywork.current.value)
-  //   if(keywork.current.value==="")
-  //   alert('Chưa nhập từ khóa!')
-  //   else
-  //   {
-  //     console.log("home->joblist");
-  //     history.push(`/joblist/${keywork.current.value}`);
-  //   }
-    
-  // }
   const dispatch = useDispatch();
 
   useEffect(() => {
