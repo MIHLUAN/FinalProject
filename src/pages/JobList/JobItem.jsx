@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const JobItem = (arrJobByName,index) => {
   return (
-    <div key={index} className='mt-4 col-lg-3 col-md-4 col-sm-6'>
+    <NavLink to='/jobdetail' key={index} className='mt-4 col-lg-3 col-md-4 col-sm-6'>
           <div className='img '><img className='' src={arrJobByName.congViec?.hinhAnh} /></div>
           <div className='info'>
             <div className="infoPeople p-2 d-flex justify-content-left">
@@ -17,7 +18,7 @@ const JobItem = (arrJobByName,index) => {
             </div>
           </div>
         
-        </div>
+        </NavLink>
   )
 }
 

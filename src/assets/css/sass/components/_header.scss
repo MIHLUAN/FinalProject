@@ -119,21 +119,22 @@
     display: none;
     border-top: 1px solid #74767e;
     border-bottom: 1px solid #74767e;
+    padding-top: 8px;
+    padding-bottom: 8px;
     transform: 0.5s ;
+    
 }
 .nut_dropdown {
     background-color: transparent;
-    padding: 8px 22px;
+    padding: 0px 22px;
     font-size: 16px;
     border: none;
     color: #74767e;
-    font-weight: 600;
+    font-weight: 600;   
     
   }
  /* Thiết lập vị trí cho thẻ div với class dropdown*/
   .dropdown {
-    
-
     position: relative;
     display: inline-block;
     transition: 0.5s;

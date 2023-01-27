@@ -7,7 +7,8 @@ import {TOKEN_CYBERSOFT, ACCESS_TOKEN, getStore, getStoreJson, http, saveStore, 
 const initialState={
     typeJob:{},
     arrJobByName:{},
-    keySearch:""
+    keySearch:"",
+    arrJobByType:{}
 }
 const jobReducer = createSlice({
     name: 'jobReducer',
@@ -21,10 +22,13 @@ const jobReducer = createSlice({
   },
   getArrJobByTypeDetailAction:(state, action) => {
     state.arrJobByName = action.payload;
+},
+getArrJobByTypeAction:(state, action) => {
+  state.arrJobByType = action.payload;
 }
     }
 });
-export const {getTypeJobAction,getArrJobByNameAction,getArrJobByTypeDetailAction } = jobReducer.actions
+export const {getArrJobByTypeAction,getTypeJobAction,getArrJobByNameAction,getArrJobByTypeDetailAction } = jobReducer.actions
 export default jobReducer.reducer
 //lấy menu loai cv
 export const getMenuApi=(typeJob)=>{
@@ -59,7 +63,7 @@ export const getArrJobByTypeDetailApi=(key)=>{
         });
       //   Lấy dữ liệu về đưa lên redux
         const action = getArrJobByTypeDetailAction(result.data.content);
-        console.log(result.data.content)
+        // console.log(result.data.content)
         dispatch(action);
       } catch (err) {
         console.log(err);
@@ -84,4 +88,24 @@ export const getArrJobByNameApi=(keySearch)=>{
         console.log(err);
       }
     };
+}
+//lay chi tiet loai cong viec
+export const getArrJobByTypeApi=(id)=>{
+  return async (dispatch)=>{
+    try{
+      const result = await axios({
+        url: `https://fiverrnew.cybersoft.edu.vn/api/cong-viec/lay-chi-tiet-loai-cong-viec/${id}`,
+        method: "GET",
+        headers: {
+            tokenCybersoft: TOKEN_CYBERSOFT ,
+          }
+      });
+      //   Lấy dữ liệu về đưa lên redux
+      const action = getArrJobByTypeAction(result.data.content);
+      console.log(result.data.content)
+      dispatch(action);
+    } catch(err){
+      console.log(err);
+    }
+  }
 }

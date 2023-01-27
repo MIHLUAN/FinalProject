@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import { history } from '../..';
 import JobType from '../../pages/JobType/JobType';
-import { getArrJobByTypeDetailApi, getMenuApi } from '../../redux/reducers/jobReducer';
+import { getArrJobByTypeApi, getArrJobByTypeDetailApi, getMenuApi } from '../../redux/reducers/jobReducer';
 
 const MenuHome = () => {
     const { typeJob } = useSelector(state => state.jobReducer);
@@ -34,6 +35,11 @@ const MenuHome = () => {
         history.push(`/joblist/`);
         // console.log(e)
     }
+    const renderTypeJob=(e)=>{
+        const action = getArrJobByTypeApi(e);
+        dispatch(action);
+        history.push(`/jobtype/`);
+    }
     const renderMenu = (arrTypeJob) => {
         // const rows = [];
         // for (const i in arrTypeJob) {
@@ -42,8 +48,8 @@ const MenuHome = () => {
         // console.log(arrTypeJob)
         return newArrJob(typeJob).map((item, index) => {
             // console.log(item)
-            return <div key={index} class="dropdown">
-                <button class="nut_dropdown">{item?.tenLoaiCongViec}</button>
+            return <div key={index}  className="dropdown">
+                <NavLink to='/jobtype' onClick={()=>renderTypeJob(item?.id)}  className="nut_dropdown">{item?.tenLoaiCongViec}</NavLink>
                 <div class="noidung_dropdown d-flex">
                 {
                     newArrJob(item?.dsNhomChiTietLoai)?.map((dsjob,index)=>{

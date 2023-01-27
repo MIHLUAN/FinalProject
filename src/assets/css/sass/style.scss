@@ -1,10 +1,3 @@
-@import "./base/base";
-@import "./pages/home.scss";
-@import "./pages/joblist";
-@import "./components/header";
-@import "./components/footer";
-
-
 *{
     margin: 0;
     padding: 0;
@@ -12,3 +5,20 @@
     font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
    
 }
+a{
+    text-decoration: none;
+    color: black;
+    &:hover{
+    color: black;
+
+    }
+}
+@import "./base/base";
+@import "./pages/home.scss";
+@import "./pages/joblist";
+@import "./pages/jobtype";
+@import "./components/header";
+@import "./components/footer";
+
+
+
