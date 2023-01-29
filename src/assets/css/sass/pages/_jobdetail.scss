@@ -44,7 +44,84 @@
                 width: 90%;
             }
         }
-
+        .introduceJob{
+            .moTa{
+                font-size: 13px;
+                font-weight: 600;
+                color: #62646a;
+            }
+        }
+        .seller{
+            .row{
+                .img{
+                    width:100px ;
+                    margin-right: 10px;
+                    display: inline;
+                    img{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50px;
+                    }
+                }
+                .introSeller{
+                    .name_nguoiTao {
+                        color: #404145;
+                        cursor: pointer;
+                        font-weight: 700;
+                        margin-right: 8px;
+                    }
+        
+                    .level {
+                        color: #62646a;
+                        font-size: 14px;
+                    }
+                    .star{
+                        color: #ffb33e;
+                        font-weight: 600;
+                    }
+                    .btnContact{
+                        padding: 10px 15px;
+                        border: 1px solid #404145;
+                        color: #404145;
+                        font-weight: 600;
+                        border-radius: 5px;
+                        &:hover{
+                            color: white;
+                            background-color:#404145 ;
+                        }
+                    }
+                }
+                .comments{
+                    .row{
+                        .img{
+                            width:50px ;
+                    margin-right: 10px;
+                    display: inline;
+                            img{
+                                width: 50px;
+                        height: 50px;
+                        border-radius: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .comments{
+            .row{
+                .img{
+                    width:50px ;
+            margin-right: 10px;
+            display: inline;
+                    img{
+                        width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                    }
+                }
+            }
+        }
     }
 
     .right {
