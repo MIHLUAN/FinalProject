@@ -115,26 +115,26 @@ const JobDetail = () => {
             </div>
             <div className='comments '>
               <h3 className='fw-bold mt-4 mb-5'>Comments</h3>
-              { comment?.map((item,index)=>{
+              {comment?.map((item, index) => {
                 return <>
-                <div key={index} className='row'>
-                <div className='img p-0'><img className='w-100' src={`https://i.pravatar.cc/150?img=${index}`} /></div>
-                <div className='introComment col-4'>
-                  <div className='name_nguoiComment fw-bold'>{item.tenNguoiBinhLuan}</div>
-                  <div className='mb-2 text-warning'>
-                    {renderStar(item.saoBinhLuan)}
-                    <span className='star'>{item.saoBinhLuan} </span><span className='text-dark'>| {item.ngayBinhLuan}</span>
+                  <div key={index} className='row'>
+                    <div className='img p-0'><img className='w-100' src={`https://i.pravatar.cc/150?img=${index}`} /></div>
+                    <div className='introComment col-4'>
+                      <div className='name_nguoiComment fw-bold'>{item.tenNguoiBinhLuan}</div>
+                      <div className='mb-2 text-warning'>
+                        {renderStar(item.saoBinhLuan)}
+                        <span className='star'>{item.saoBinhLuan} </span><span className='text-dark'>| {item.ngayBinhLuan}</span>
+                      </div>
+                      <div className='mb-2'>{item.noiDung}</div>
+                      <div > <span>HelpFull?   <i class="fa fa-thumbs-up"></i> Yes <i class="fa fa-thumbs-down"></i> No</span></div>
+                    </div>
+                    <hr className='m-4'></hr>
                   </div>
-                  <div className='mb-2'>{item.noiDung}</div>
-                  <div > <span>HelpFull?   <i class="fa fa-thumbs-up"></i> Yes <i class="fa fa-thumbs-down"></i> No</span></div>
-                </div>
-                <hr className='m-4'></hr>
-              </div>
                 </>
               })
 
               }
-              
+
             </div>
           </div>
           <div className='right'>
