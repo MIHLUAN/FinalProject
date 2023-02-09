@@ -65,7 +65,7 @@ export default function Register() {
     let birthday = moment(value);
     formik.setFieldValue('birthday', birthday);
 
-}
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -81,7 +81,7 @@ export default function Register() {
               </svg>
             </div>
             <div className="register-form px-10 pt-2 pb-8 bg-white rounded-tr-4xl">
-              <h1 className="text-2xl text-center mb-5 font-semibold text-gray-900">Welcome back Fiverr !</h1>
+              <h1 className="text-2xl text-center mb-5 font-semibold text-gray-900">Fiverr - Register</h1>
               <>
                 <Form
                   onFinish={formik.handleSubmit}
@@ -190,7 +190,7 @@ export default function Register() {
                     hasFeedback
 
                   >
-                    <DatePicker name='birthday' format={"DD/MM/YYYY"}  value={formik.values.birthday} onChange={handleChangeDatePicker} placeholder='Nhập ngày sinh' />
+                    <DatePicker name='birthday' format={"DD/MM/YYYY"} value={formik.values.birthday} onChange={handleChangeDatePicker} placeholder='Nhập ngày sinh' />
                   </Form.Item>
                   <Form.Item label="Giới tính" name="gender" rules={[
                     {

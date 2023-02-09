@@ -45,7 +45,7 @@ export default function Login(props) {
               </svg>
             </div>
             <div className="px-10 pt-2 pb-8 bg-white rounded-tr-4xl">
-              <h1 className="text-2xl font-semibold text-gray-900">Welcome back Fiverr !</h1>
+              <h1 className="text-2xl font-semibold text-gray-900 text-center">Fiverr - Sign in</h1>
               <div className="mt-6" >
                 {/* <div className="relative">
                   <input onChange={formik.handleChange} name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="Nhập email của bạn" />
