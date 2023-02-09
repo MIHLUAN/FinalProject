@@ -1,34 +1,34 @@
 import axios from 'axios';
 import { history } from '../index';
-import { isExpired, decodeToken } from "react-jwt";
+// import { isExpired, decodeToken } from "react-jwt";
 
 export const ACCESS_TOKEN = 'accessToken';
 export const USER_LOGIN = 'userLogin';
 
-export const { saveStore,saveStoreJson,getStore,getStoreJson,removeStore} = {
+export const { saveStore, saveStoreJson, getStore, getStoreJson, removeStore } = {
     saveStore: (name, stringValue) => {
         localStorage.setItem(name, stringValue);
         return stringValue;
     },
-    saveStoreJson: (name,value) => {
+    saveStoreJson: (name, value) => {
         let sValue = JSON.stringify(value);
-        localStorage.setItem(name,sValue);
+        localStorage.setItem(name, sValue);
         return value; //object
     },
     getStore: (name) => {
-        if(localStorage.getItem(name)){
+        if (localStorage.getItem(name)) {
             return localStorage.getItem(name);
         }
         return null;
     },
-    getStoreJson : (name) => {
-        if(localStorage.getItem(name)){
+    getStoreJson: (name) => {
+        if (localStorage.getItem(name)) {
             return JSON.parse(localStorage.getItem(name));
         }
         return null
     },
     removeStore: (name) => {
-        if(localStorage.getItem(name)){
+        if (localStorage.getItem(name)) {
             localStorage.removeItem(name);
         }
     }
@@ -39,8 +39,8 @@ export const TOKEN_CYBERSOFT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3A
 //Cấu hình cho tất các request api
 
 export const http = axios.create({
-    baseURL:'https://fiverrnew.cybersoft.edu.vn',
-    timeout:30000
+    baseURL: 'https://fiverrnew.cybersoft.edu.vn',
+    timeout: 30000
 })
 
 http.interceptors.request.use((config) => {
@@ -58,26 +58,26 @@ http.interceptors.request.use((config) => {
 //     baseURL:'https://shop2.cyberlearn.vn'
 // })
 //Cấu hình cho tất cả các response api
-http.interceptors.response.use((res)=>{
+http.interceptors.response.use((res) => {
     return res;
 }, (err) => {
     //Bắt lỗi 400 hoặc 404
-    if(err.response?.status === 400 || err.response?.status === 404) {
+    if (err.response?.status === 400 || err.response?.status === 404) {
         //Lỗi do tham số => backend trả về 400 hoặc 404 mình sẽ xử lý
         alert('tham số không hợp lệ !');
         //chuyển hướng về home
         history.push('/');
     }
-    if(err.response?.status === 401 || err.response.status === 403) {
-         const isMyTokenExpired = isExpired(getStore(ACCESS_TOKEN));
-        if(isMyTokenExpired) {
-            alert('Hết phiên đăng nhập yêu cầu đăng nhập lại !');
-            removeStore(ACCESS_TOKEN);
-            removeStore(USER_LOGIN);
-            //Chuyển hướng trang dạng f5
-            window.location.href = '/login';
-        }
-        history.push('/login');
+    if (err.response?.status === 401 || err.response.status === 403) {
+        //  const isMyTokenExpired = isExpired(getStore(ACCESS_TOKEN));
+        // if(isMyTokenExpired) {
+        //     alert('Hết phiên đăng nhập yêu cầu đăng nhập lại !');
+        //     removeStore(ACCESS_TOKEN);
+        //     removeStore(USER_LOGIN);
+        //     //Chuyển hướng trang dạng f5
+        //     window.location.href = '/login';
+        // }
+        // history.push('/login');
     }
     return Promise.reject(err);
 })
