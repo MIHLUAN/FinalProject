@@ -25,6 +25,7 @@
     "react-paginated-list": "^1.1.6",
     "react-player": "^2.11.0",
     "react-redux": "^8.0.5",
+    "react-router": "^6.8.1",
     "react-router-dom": "^6.4.3",
     "react-router-redux": "^4.0.8",
     "react-scripts": "5.0.1",
